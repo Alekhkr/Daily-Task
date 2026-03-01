@@ -8,13 +8,17 @@ void solve() {
     string s;
     cin >> s;
     int flag = 0;
-    for(char ch:s) {
-    	flag^= (1<<(ch-'a'));
+    
+    for(char ch : s) {
+        if (isalpha(ch)) {
+            flag |= (1 << (tolower(ch) - 'a'));
+        }
     }
-    if (flag == 0 || ((flag&(flag-1))== 0)) {
-    	cout << "yes";
-    }else {
-    	cout << "no";
+    
+    if (flag == ((1 << 26) - 1)) {
+        cout << "yes\n";
+    } else {
+        cout << "no\n";
     }
 }
 
